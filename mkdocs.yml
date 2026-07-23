@@ -1,0 +1,427 @@
+site_description: Notes taken during HTB CPTS exam preparation
+site_name: Serhat Çelik
+
+strict: true
+
+validation:
+    nav:
+        omitted_files: warn
+        not_found: warn
+        absolute_links: warn
+    links:
+        not_found: warn
+        anchors: warn
+        absolute_links: relative_to_docs
+        unrecognized_links: warn
+
+extra_css:
+- stylesheets/extra.css
+
+theme:
+    name: material
+    custom_dir: overrides
+    features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.path
+    - search.suggest
+    palette:
+        scheme: slate
+        primary: black
+        accent: deep purple
+    font:
+        text: Ubuntu Mono
+        code: Ubuntu Sans Mono
+    icon:
+        logo: material/tortoise
+
+plugins:
+- offline
+- privacy
+- search
+- glightbox:
+    effect: none
+    slide_effect: none
+    draggable: false
+    background: none
+    shadow: false
+
+markdown_extensions:
+- admonition
+- attr_list
+- md_in_html
+- tables
+- toc:
+    title: Table of Contents
+    permalink: true
+    permalink_title: Permanent Link
+- pymdownx.blocks.caption
+- pymdownx.details
+- pymdownx.highlight:
+    pygments_lang_class: true
+    linenums_style: table
+    line_spans: __span
+- pymdownx.keys
+- pymdownx.smartsymbols:
+    trademark: false
+    copyright: false
+    registered: false
+    care_of: false
+    plusminus: false
+    arrows: true
+    notequal: false
+    fractions: false
+    ordinal_numbers: false
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.tasklist:
+    custom_checkbox: true
+
+nav:
+- index.md
+- Active Directory BloodHound:
+    - active-directory-bloodhound/data-collection-from-windows.md
+    - active-directory-bloodhound/data-collection-from-linux.md
+    - active-directory-bloodhound/nodes.md
+    - active-directory-bloodhound/edges.md
+    - active-directory-bloodhound/cypher-queries.md
+- Active Directory Enumeration and Attacks:
+    - active-directory-enumeration-and-attacks/initial-enumeration-of-the-domain.md
+    - active-directory-enumeration-and-attacks/llmnr-and-nbt-ns-poisoning.md
+    - active-directory-enumeration-and-attacks/password-policy.md
+    - active-directory-enumeration-and-attacks/making-a-user-list.md
+    - active-directory-enumeration-and-attacks/password-spraying.md
+    - active-directory-enumeration-and-attacks/enumerating-security-controls.md
+    - active-directory-enumeration-and-attacks/credentialed-enumeration-from-windows.md
+    - active-directory-enumeration-and-attacks/credentialed-enumeration-from-linux.md
+    - active-directory-enumeration-and-attacks/lotl.md
+    - active-directory-enumeration-and-attacks/acl-enumeration.md
+    - active-directory-enumeration-and-attacks/acl-abuse.md
+    - active-directory-enumeration-and-attacks/privileged-access.md
+    - active-directory-enumeration-and-attacks/kerberos-double-hop-problem.md
+    - active-directory-enumeration-and-attacks/nopac.md
+    - active-directory-enumeration-and-attacks/miscellaneous-misconfigurations.md
+    - active-directory-enumeration-and-attacks/domain-trusts.md
+    - active-directory-enumeration-and-attacks/attacking-domain-trusts-from-windows.md
+    - active-directory-enumeration-and-attacks/attacking-domain-trusts-from-linux.md
+    - active-directory-enumeration-and-attacks/auditing.md
+- Active Directory LDAP:
+    - active-directory-ldap/rsat.md
+    - active-directory-ldap/active-directory-search-filters.md
+    - active-directory-ldap/ldap-search-filters.md
+    - active-directory-ldap/ldap-anonymous-bind.md
+    - active-directory-ldap/credentialed-enumeration.md
+- Active Directory PowerView:
+    - active-directory-powerview/powerview-overview.md
+    - active-directory-powerview/enumerating-ad-users.md
+    - active-directory-powerview/enumerating-ad-groups.md
+    - active-directory-powerview/enumerating-ad-computers.md
+    - active-directory-powerview/enumerating-acl.md
+    - active-directory-powerview/enumerating-gpo.md
+- Attacking Common Applications:
+    - attacking-common-applications/discovery-and-enumeration.md
+    - attacking-common-applications/wordpress.md
+    - attacking-common-applications/attacking-wordpress.md
+    - attacking-common-applications/joomla.md
+    - attacking-common-applications/attacking-joomla.md
+    - attacking-common-applications/drupal.md
+    - attacking-common-applications/attacking-drupal.md
+    - attacking-common-applications/tomcat.md
+    - attacking-common-applications/attacking-tomcat.md
+    - attacking-common-applications/attacking-tomcat-cgi.md
+    - attacking-common-applications/jenkins.md
+    - attacking-common-applications/attacking-jenkins.md
+    - attacking-common-applications/splunk.md
+    - attacking-common-applications/attacking-splunk.md
+    - attacking-common-applications/prtg-network-monitor.md
+    - attacking-common-applications/attacking-prtg-network-monitor.md
+    - attacking-common-applications/gitlab.md
+    - attacking-common-applications/coldfusion.md
+    - attacking-common-applications/iis-tilde-enumeration.md
+- Broken Authentication:
+    - broken-authentication/brute-forcing-passwords.md
+    - broken-authentication/brute-forcing-password-reset-tokens.md
+    - broken-authentication/brute-forcing-password-reset-questions.md
+    - broken-authentication/brute-forcing-2fa-codes.md
+    - broken-authentication/parameter-modification.md
+    - broken-authentication/predictable-session-tokens.md
+- Command Injections:
+    - command-injections/detection.md
+    - command-injections/other-injection-operators.md
+    - command-injections/filter-detection.md
+    - command-injections/bypassing-blacklisted-spaces.md
+    - command-injections/bypassing-other-blacklisted-characters.md
+    - command-injections/bypassing-blacklisted-commands.md
+    - command-injections/advanced-command-obfuscation.md
+    - command-injections/evasion-tools.md
+- Cracking Passwords with Hashcat:
+    - cracking-passwords-with-hashcat/identifying-hashes.md
+    - cracking-passwords-with-hashcat/hashcat-attack-types.md
+    - cracking-passwords-with-hashcat/working-with-rules.md
+    - cracking-passwords-with-hashcat/creating-custom-wordlists.md
+    - cracking-passwords-with-hashcat/cracking-wireless-handshakes.md
+- File Inclusion:
+    - file-inclusion/local-file-inclusion.md
+    - file-inclusion/basic-bypasses.md
+    - file-inclusion/php-filters.md
+    - file-inclusion/lfi-to-rce.md
+    - file-inclusion/php-wrappers.md
+    - file-inclusion/remote-file-inclusion.md
+    - file-inclusion/automated-scanning.md
+- File Transfers:
+    - file-transfers/windows-file-transfer-methods.md
+    - file-transfers/linux-file-transfer-methods.md
+    - file-transfers/miscellaneous-file-transfer-methods.md
+    - file-transfers/protected-file-transfers.md
+    - file-transfers/catching-files-over-https.md
+    - file-transfers/detection.md
+- File Upload Attacks:
+    - file-upload-attacks/absent-validation.md
+    - file-upload-attacks/front-end-validation.md
+    - file-upload-attacks/bypassing-blacklist-filters.md
+    - file-upload-attacks/bypassing-whitelist-filters.md
+    - file-upload-attacks/bypassing-type-filters.md
+    - file-upload-attacks/limited-file-uploads.md
+- Footprinting:
+    - footprinting/domain-information.md
+    - footprinting/ftp.md
+    - footprinting/smb.md
+    - footprinting/nfs.md
+    - footprinting/dns.md
+    - footprinting/smtp.md
+    - footprinting/email-services.md
+    - footprinting/snmp.md
+    - footprinting/mysql.md
+    - footprinting/mssql.md
+    - footprinting/oracle-tns.md
+    - footprinting/ipmi.md
+    - footprinting/rdp.md
+- Introduction to Malware Analysis:
+    - introduction-to-malware-analysis/static-analysis.md
+    - introduction-to-malware-analysis/creating-detection-rules.md
+- Introduction to Windows Evasion Techniques:
+    - introduction-to-windows-evasion-techniques/powershell-defender-module.md
+    - introduction-to-windows-evasion-techniques/static-analysis.md
+    - introduction-to-windows-evasion-techniques/dynamic-analysis.md
+    - introduction-to-windows-evasion-techniques/portable-executable-injection.md
+    - introduction-to-windows-evasion-techniques/amsi.md
+    - introduction-to-windows-evasion-techniques/open-source-software.md
+    - introduction-to-windows-evasion-techniques/applocker.md
+    - introduction-to-windows-evasion-techniques/installutil.md
+    - introduction-to-windows-evasion-techniques/powershell-constrained-language-mode.md
+- Kerberos Attacks:
+    - kerberos-attacks/kerberos-authentication-process.md
+    - kerberos-attacks/as-rep-roasting.md
+    - kerberos-attacks/as-rep-roasting-from-linux.md
+    - kerberos-attacks/kerberoasting.md
+    - kerberos-attacks/kerberoasting-from-linux.md
+    - kerberos-attacks/kerberos-delegations.md
+    - kerberos-attacks/unconstrained-delegation-for-computers.md
+    - kerberos-attacks/unconstrained-delegation-for-users.md
+    - kerberos-attacks/constrained-delegation.md
+    - kerberos-attacks/constrained-delegation-from-linux.md
+    - kerberos-attacks/rbcd.md
+    - kerberos-attacks/rbcd-from-linux.md
+    - kerberos-attacks/golden-ticket.md
+    - kerberos-attacks/golden-ticket-from-linux.md
+    - kerberos-attacks/silver-ticket.md
+    - kerberos-attacks/silver-ticket-from-linux.md
+    - kerberos-attacks/pass-the-ticket.md
+    - kerberos-attacks/kerbrute.md
+    - kerberos-attacks/mitigations.md
+- Linux Privilege Escalation:
+    - linux-privilege-escalation/environment-enumeration.md
+    - linux-privilege-escalation/linux-internals-enumeration.md
+    - linux-privilege-escalation/credential-hunting.md
+    - linux-privilege-escalation/path-abuse.md
+    - linux-privilege-escalation/wildcard-abuse.md
+    - linux-privilege-escalation/escaping-restricted-shells.md
+    - linux-privilege-escalation/special-permissions.md
+    - linux-privilege-escalation/sudo.md
+    - linux-privilege-escalation/sudo-rights-abuse.md
+    - linux-privilege-escalation/group-lxd.md
+    - linux-privilege-escalation/group-docker.md
+    - linux-privilege-escalation/group-disk.md
+    - linux-privilege-escalation/group-adm.md
+    - linux-privilege-escalation/capabilities.md
+    - linux-privilege-escalation/gnu-screen-vulnerability.md
+    - linux-privilege-escalation/cron-job-abuse.md
+    - linux-privilege-escalation/logrotate.md
+    - linux-privilege-escalation/weak-nfs-privileges.md
+    - linux-privilege-escalation/tmux.md
+    - linux-privilege-escalation/shared-library.md
+    - linux-privilege-escalation/shared-library-hijacking.md
+    - linux-privilege-escalation/python-library-hijacking.md
+    - linux-privilege-escalation/pythonpath.md
+    - linux-privilege-escalation/kernel-exploits.md
+    - linux-privilege-escalation/dirty-pipe.md
+    - linux-privilege-escalation/netfilter.md
+- Network Enumeration with Nmap:
+    - network-enumeration-with-nmap/host-discovery.md
+    - network-enumeration-with-nmap/host-and-port-scanning.md
+    - network-enumeration-with-nmap/saving-the-results.md
+    - network-enumeration-with-nmap/nmap-scripting-engine.md
+    - network-enumeration-with-nmap/performance.md
+    - network-enumeration-with-nmap/firewall-evasion.md
+- Network Foundations:
+    - network-foundations/network-topologies.md
+    - network-foundations/proxies.md
+    - network-foundations/ip-addresses.md
+    - network-foundations/subnetting.md
+    - network-foundations/data-flow-example.md
+- NTLM Relay Attacks:
+    - ntlm-relay-attacks/introduction.md
+    - ntlm-relay-attacks/attack-phases.md
+    - ntlm-relay-attacks/extra-use-cases.md
+    - ntlm-relay-attacks/cross-protocol-attacks.md
+    - ntlm-relay-attacks/farming-hashes.md
+    - ntlm-relay-attacks/authentication-coercion.md
+    - ntlm-relay-attacks/kerberos-rbcd-abuse.md
+    - ntlm-relay-attacks/shadow-credentials.md
+    - ntlm-relay-attacks/ad-cs-attacks.md
+- Password Attacks:
+    - password-attacks/network-services.md
+    - password-attacks/custom-usernames.md
+    - password-attacks/password-mutations.md
+    - password-attacks/attacking-sam.md
+    - password-attacks/attacking-lsass.md
+    - password-attacks/attacking-credential-manager.md
+    - password-attacks/attacking-ntds-dit.md
+    - password-attacks/credential-hunting-in-windows.md
+    - password-attacks/credential-hunting-in-linux.md
+    - password-attacks/unshadow.md
+    - password-attacks/pass-the-hash.md
+    - password-attacks/overpass-the-hash.md
+    - password-attacks/pass-the-ticket-from-windows.md
+    - password-attacks/pass-the-ticket-from-linux.md
+    - password-attacks/bitlocker-encrypted-drives.md
+- Penetration Testing Process:
+    - penetration-testing-process/penetration-testing.md
+    - penetration-testing-process/process.md
+- Pivoting, Tunneling, and Port Forwarding:
+    - pivoting-tunneling-and-port-forwarding/ssh-local-port-forwarding.md
+    - pivoting-tunneling-and-port-forwarding/ssh-dynamic-port-forwarding.md
+    - pivoting-tunneling-and-port-forwarding/ssh-reverse-port-forwarding.md
+    - pivoting-tunneling-and-port-forwarding/meterpreter-port-forwarding.md
+    - pivoting-tunneling-and-port-forwarding/socat-redirection-with-reverse-shell.md
+    - pivoting-tunneling-and-port-forwarding/socat-redirection-with-bind-shell.md
+    - pivoting-tunneling-and-port-forwarding/pivoting-around-obstacles.md
+    - pivoting-tunneling-and-port-forwarding/dns-tunneling.md
+    - pivoting-tunneling-and-port-forwarding/socksoverrdp.md
+    - pivoting-tunneling-and-port-forwarding/chisel.md
+    - pivoting-tunneling-and-port-forwarding/ligolo-ng.md
+    - pivoting-tunneling-and-port-forwarding/double-pivot.md
+- Security Monitoring and SIEM Fundamentals:
+    - security-monitoring-and-siem-fundamentals/kibana-dashboards.md
+    - security-monitoring-and-siem-fundamentals/kibana-query-language.md
+    - security-monitoring-and-siem-fundamentals/kibana-example-hunting.md
+- Shells and Payloads:
+    - shells-and-payloads/reverse-shell.md
+    - shells-and-payloads/web-shell.md
+- SQL Injection Fundamentals:
+    - sql-injection-fundamentals/mysql.md
+    - sql-injection-fundamentals/sql-statements.md
+    - sql-injection-fundamentals/query-results.md
+    - sql-injection-fundamentals/sql-operators.md
+    - sql-injection-fundamentals/subverting-query-logic.md
+    - sql-injection-fundamentals/using-comments.md
+    - sql-injection-fundamentals/union-clause.md
+    - sql-injection-fundamentals/union-injection.md
+    - sql-injection-fundamentals/database-enumeration.md
+    - sql-injection-fundamentals/reading-files.md
+    - sql-injection-fundamentals/writing-files.md
+- SQLMap Essentials:
+    - sqlmap-essentials/http-requests.md
+    - sqlmap-essentials/handling-errors.md
+    - sqlmap-essentials/attack-tunning.md
+    - sqlmap-essentials/database-enumeration.md
+    - sqlmap-essentials/advanced-database-enumeration.md
+    - sqlmap-essentials/bypassing-web-application-protections.md
+    - sqlmap-essentials/operating-system-exploitation.md
+- Stack-Based Buffer Overflows on Linux x86:
+    - stack-based-buffer-overflows-on-linux-x86/fundamentals.md
+    - stack-based-buffer-overflows-on-linux-x86/cpu-registers.md
+    - stack-based-buffer-overflows-on-linux-x86/controlling-eip.md
+    - stack-based-buffer-overflows-on-linux-x86/shellcode-length.md
+    - stack-based-buffer-overflows-on-linux-x86/finding-bad-characters.md
+    - stack-based-buffer-overflows-on-linux-x86/generating-shellcode.md
+    - stack-based-buffer-overflows-on-linux-x86/return-address-selection.md
+- Stack-Based Buffer Overflows on Windows x86:
+    - stack-based-buffer-overflows-on-windows-x86/fuzzing-parameters.md
+    - stack-based-buffer-overflows-on-windows-x86/controlling-eip.md
+    - stack-based-buffer-overflows-on-windows-x86/finding-bad-characters.md
+    - stack-based-buffer-overflows-on-windows-x86/jumping-to-shellcode.md
+    - stack-based-buffer-overflows-on-windows-x86/remote-fuzzing.md
+    - stack-based-buffer-overflows-on-windows-x86/remote-exploitation.md
+- Using the Metasploit Framework:
+    - using-the-metasploit-framework/modules.md
+    - using-the-metasploit-framework/targets.md
+    - using-the-metasploit-framework/payloads.md
+    - using-the-metasploit-framework/encoders.md
+    - using-the-metasploit-framework/databases.md
+    - using-the-metasploit-framework/plugins.md
+    - using-the-metasploit-framework/sessions.md
+- Web Attacks:
+    - web-attacks/http-verb-tampering.md
+    - web-attacks/idor.md
+    - web-attacks/xxe.md
+    - web-attacks/blind-xxe.md
+- Web Fuzzing:
+    - web-fuzzing/tooling.md
+    - web-fuzzing/directory-fuzzing.md
+    - web-fuzzing/file-fuzzing.md
+    - web-fuzzing/recursive-fuzzing.md
+    - web-fuzzing/subdomain-fuzzing.md
+    - web-fuzzing/virtual-host-fuzzing.md
+    - web-fuzzing/filtering.md
+    - web-fuzzing/parameter-fuzzing.md
+    - web-fuzzing/value-fuzzing.md
+    - web-fuzzing/api-fuzzing.md
+- Wi-Fi Penetration Testing Basics:
+    - wi-fi-penetration-testing-basics/frame-types.md
+    - wi-fi-penetration-testing-basics/wireless-interfaces.md
+    - wi-fi-penetration-testing-basics/interface-modes.md
+    - wi-fi-penetration-testing-basics/wireless-network-connection.md
+    - wi-fi-penetration-testing-basics/airmon-ng.md
+    - wi-fi-penetration-testing-basics/airodump-ng.md
+    - wi-fi-penetration-testing-basics/airgraph-ng.md
+    - wi-fi-penetration-testing-basics/aireplay-ng.md
+    - wi-fi-penetration-testing-basics/airdecap-ng.md
+    - wi-fi-penetration-testing-basics/aircrack-ng.md
+    - wi-fi-penetration-testing-basics/finding-hidden-ssid.md
+    - wi-fi-penetration-testing-basics/bypassing-mac-filtering.md
+- Windows Attacks and Defense:
+    - windows-attacks-and-defense/as-rep-roasting.md
+    - windows-attacks-and-defense/kerberoasting.md
+    - windows-attacks-and-defense/group-policy-preferences.md
+    - windows-attacks-and-defense/group-policy-objects.md
+    - windows-attacks-and-defense/dcsync.md
+- Windows Event Logs and Finding Evil:
+    - windows-event-logs-and-finding-evil/event-viewer.md
+    - windows-event-logs-and-finding-evil/sysmon.md
+    - windows-event-logs-and-finding-evil/etw.md
+- Windows Privilege Escalation:
+    - windows-privilege-escalation/situational-awareness.md
+    - windows-privilege-escalation/initial-enumeration.md
+    - windows-privilege-escalation/communication-with-processes.md
+    - windows-privilege-escalation/seimpersonateprivilege.md
+    - windows-privilege-escalation/sedebugprivilege.md
+    - windows-privilege-escalation/setakeownershipprivilege.md
+    - windows-privilege-escalation/backup-operators.md
+    - windows-privilege-escalation/event-log-readers.md
+    - windows-privilege-escalation/dnsadmins.md
+    - windows-privilege-escalation/print-operators.md
+    - windows-privilege-escalation/server-operators.md
+    - windows-privilege-escalation/uac.md
+    - windows-privilege-escalation/weak-permissions.md
+    - windows-privilege-escalation/unquoted-service-paths.md
+    - windows-privilege-escalation/serioussam.md
+    - windows-privilege-escalation/printnightmare.md
+    - windows-privilege-escalation/printnightmare-from-linux.md
+    - windows-privilege-escalation/mozilla-maintenance-service.md
+    - windows-privilege-escalation/sysax-ftp-automation.md
+    - windows-privilege-escalation/vulnerable-services.md
+    - windows-privilege-escalation/credential-hunting.md
+    - windows-privilege-escalation/citrix-breakout.md
+    - windows-privilege-escalation/interacting-with-users.md

