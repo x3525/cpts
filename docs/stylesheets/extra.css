@@ -1,0 +1,82 @@
+img
+{
+    display: block;
+    margin: auto;
+}
+
+table th
+{
+    white-space: nowrap;
+}
+
+table th:not(.filename)
+{
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-underline-position: under;
+}
+
+table td:not(.code)
+{
+    font-size: medium;
+}
+
+table td:not(:last-child)
+{
+    white-space: nowrap;
+}
+
+.md-typeset .md-typeset__table table:not([class])
+{
+    display: table;
+}
+
+.md-typeset .admonition
+{
+    font-size: medium;
+}
+
+.md-typeset .tabbed-labels label a
+{
+    text-transform: uppercase;
+}
+
+.md-typeset h1
+{
+    font-size: 2em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.md-typeset h2
+{
+    font-size: 1.5em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.md-typeset h3
+{
+    font-size: 1.25em;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6
+{
+    font-size: 0.75rem;
+    font-weight: normal;
+    text-transform: none;
+}
+
+:root > *
+{
+    --md-code-hl-color: var(--md-primary-fg-color);
+}
+
+.highlight .hll
+{
+    background-color: var(--md-primary-fg-color);
+}
